@@ -49,44 +49,56 @@ body {
 }
 
 /* =============================
-   Header (refined)
+   Header (baseline-aligned + full width)
    ============================= */
 
 .site-header {
   margin-bottom: 1.6rem;
 }
 
+/* The container controls header width */
 .site-header .container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;    /* nav hugs name */
-  gap: 0.2rem;                    /* VERY close nav-to-name */
-  padding-top: 1.9rem;            /* slightly less top padding */
+
+  /* NEW: name & nav on the same baseline */
+  align-items: flex-end;
+
+  /* NEW: distribute space across the whole width evenly */
+  justify-content: space-between;
+
+  gap: 0.2rem;
+  padding-top: 1.9rem;
   padding-bottom: 0.5rem;
 }
 
-/* Your name — largest, modern, clean */
+/* Your name — largest text */
 .site-title {
   font-family: var(--font-title);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--text);
-  font-size: 2rem;                /* BIGGEST on the site */
+  font-size: 2rem;            /* BIGGEST text on the site */
   text-transform: none;
-  margin-right: 0.4rem;
+  padding-bottom: 0.1rem;     /* tiny adjustment for perfect baseline sit */
 }
 
-/* Nav — close to name, but spaced apart internally */
+/* Nav bar */
 .site-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;                   /* further apart BETWEEN items */
-  margin-left: 0.2rem;            /* but still VERY close to name */
+
+  /* NEW: space nav buttons slightly more */
+  gap: 0.75rem;
+
+  /* Align bottom with your name */
+  align-items: flex-end;
+
+  padding-bottom: 0.15rem;   /* subtle baseline tweak */
+  margin-left: 0.2rem;
 }
 
 .site-nav a {
-  color: var(--accent);           /* blue links */
+  color: var(--accent);
   font-size: 0.95rem;
   text-decoration: none;
   padding: 0.05rem 0;
@@ -96,186 +108,4 @@ body {
   color: var(--hover-highlight);
   background-color: rgba(255, 228, 156, 0.15);
   border-radius: 2px;
-}
-
-/* =============================
-   Typography
-   ============================= */
-
-h1, h2, h3 {
-  font-weight: 600;
-  margin: 1.7rem 0 0.6rem;
-  letter-spacing: 0.01em;
-}
-
-h1 {
-  font-size: 1.8rem;
-}
-
-h2 {
-  font-size: 1.3rem;
-}
-
-h3 {
-  font-size: 1.08rem;
-}
-
-p {
-  margin: 0 0 0.75rem;
-}
-
-/* Highlight-link behavior */
-
-a {
-  position: relative;
-  color: var(--accent);
-  text-decoration: none;
-  transition:
-    color 0.16s ease-out,
-    background-color 0.16s ease-out;
-  padding: 0 0.08rem;
-  border-radius: 2px;
-}
-
-a:hover {
-  color: #111111;
-  background-color: var(--hover-highlight);
-}
-
-/* =============================
-   Lists
-   ============================= */
-
-ul,
-ol {
-  margin: 0 0 0.75rem 1.1rem;
-}
-
-/* =============================
-   Home sections
-   ============================= */
-
-.home-section {
-  margin-top: 2rem;
-}
-
-.home-section h2 {
-  margin-bottom: 0.6rem;
-}
-
-.home-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.home-section li {
-  padding: 0.2rem 0;
-}
-
-/* =============================
-   Meta / tags
-   ============================= */
-
-.meta {
-  color: var(--muted);
-  font-size: 0.82rem;
-  margin-left: 0.35rem;
-}
-
-/* Tags: italic inline (no bubbles) */
-.post-tags {
-  margin-left: 0.35rem;
-}
-
-.tag {
-  font-style: italic;
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-left: 0.25rem;
-}
-
-/* =============================
-   Post layout
-   ============================= */
-
-.post-header h1 {
-  margin-top: 1.1rem;
-}
-
-.post-summary {
-  color: var(--muted);
-  margin-top: 0.2rem;
-}
-
-.post-content {
-  margin-top: 1.2rem;
-}
-
-/* =============================
-   Post list
-   ============================= */
-
-.post-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0 0;
-}
-
-.post-list-item {
-  padding: 0.4rem 0;
-}
-
-/* =============================
-   Backlinks
-   ============================= */
-
-.backlinks {
-  margin-top: 2.5rem;
-  padding-top: 1.2rem;
-}
-
-.backlinks h2 {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--muted);
-  margin-bottom: 0.4rem;
-}
-
-.backlinks-intro {
-  margin: 0 0 0.4rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-.backlinks ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.backlinks li {
-  padding: 0.2rem 0;
-}
-
-.badge {
-  display: inline-block;
-  margin-left: 0.35rem;
-  padding: 0.03rem 0.3rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-
-/* =============================
-   Footer
-   ============================= */
-
-.site-footer {
-  margin-top: 2.5rem;
-  padding-top: 1.2rem;
-  font-size: 0.85rem;
-  color: var(--muted);
 }
