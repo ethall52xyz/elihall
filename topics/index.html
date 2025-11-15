@@ -1,0 +1,39 @@
+---
+layout: default
+title: Topics
+---
+
+<h1>Topics</h1>
+
+<p>Essays grouped by tag.</p>
+
+{% assign all_essays = site.essays %}
+{% assign tags = "" | split: "" %}
+
+{% for post in all_essays %}
+  {% if post.tags %}
+    {% for tag in post.tags %}
+      {% unless tags contains tag %}
+        {% assign tags = tags | push: tag %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% assign tags = tags | sort %}
+
+{% for tag in tags %}
+  <section class="home-section">
+    <h2 id="{{ tag | downcase | replace: ' ', '-' }}">{{ tag }}</h2>
+    <ul>
+      {% for post in all_essays %}
+        {% if post.tags contains tag %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="meta">– {{ post.date | date: "%b %-d, %Y" }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
