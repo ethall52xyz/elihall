@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} • {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+    <!-- Favicon (add assets/img/favicon.png later) -->
+    <link rel="icon" type="image/png" href="{{ "/assets/img/favicon.png" | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="{{ "/" | relative_url }}" class="site-title">{{ site.title }}</a>
+        <nav class="site-nav">
+          <a href="{{ "/essays/"  | relative_url }}">essays</a>
+          <a href="{{ "/notes/"   | relative_url }}">notes</a>
+          <a href="{{ "/topics/"  | relative_url }}">topics</a>
+          <a href="{{ "/map/"     | relative_url }}">map</a>
+          <a href="{{ "/contact/" | relative_url }}">contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+        <p class="meta">
+          <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
