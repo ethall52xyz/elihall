@@ -1,0 +1,25 @@
+---
+layout: default
+title: Notes
+---
+
+<h1>Notes</h1>
+
+{% assign sorted_notes = site.notes | sort: "date" | reverse %}
+{% assign groups = sorted_notes | group_by_exp: "note", "note.date | date: '%Y-%m'" %}
+
+{% for group in groups %}
+  {% assign month_label = group.name | append: "-01" | date: "%B %Y" %}
+
+  <section class="home-section">
+    <h2>{{ month_label }}</h2>
+    <ul>
+      {% for note in group.items %}
+        <li>
+          <span class="meta">{{ note.date | date: "%b %-d" }}</span>
+          <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
