@@ -1,0 +1,33 @@
+title: "Eli Hall"
+description: "Musings on the nature of being."
+url: "https://elihall.xyz"
+baseurl: ""  # site lives at the domain root
+
+theme: null
+
+collections:
+  essays:
+    output: true
+    permalink: /essays/:title/
+  notes:
+    output: true
+    permalink: /notes/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: "_essays"
+      type: essays
+    values:
+      layout: post
+  - scope:
+      path: "_notes"
+      type: notes
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+
+feed:
+  collections:
+    - essays
