@@ -1,0 +1,34 @@
+---
+layout: default
+title: Home
+---
+
+<section>
+  <p>Trying to understand how people (and bassoon reeds) work.</p>
+</section>
+
+<section class="home-section">
+  <h2>Featured essays</h2>
+  <ul>
+    {% assign featured_essays = site.essays | where: "featured", true | sort: "date" | reverse %}
+    {% for post in featured_essays limit:5 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="meta">– {{ post.date | date: "%b %-d, %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="home-section">
+  <h2>Latest notes</h2>
+  <ul>
+    {% assign latest_notes = site.notes | sort: "date" | reverse %}
+    {% for note in latest_notes limit:10 %}
+      <li>
+        <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+        <span class="meta">– {{ note.date | date: "%b %-d" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
