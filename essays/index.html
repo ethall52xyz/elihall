@@ -1,0 +1,29 @@
+---
+layout: default
+title: Essays
+---
+
+<h1>Essays</h1>
+
+<ul class="post-list">
+  {% assign sorted_essays = site.essays | sort: "date" | reverse %}
+
+  {% for post in sorted_essays %}
+    <li class="post-list-item">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="meta">{{ post.date | date: "%B %-d, %Y" }}</span>
+
+      {% if post.tags %}
+        <span class="post-tags">
+          {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+
+      {% if post.summary %}
+        <p class="summary">{{ post.summary }}</p>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
