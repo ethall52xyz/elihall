@@ -49,7 +49,7 @@ body {
 }
 
 /* =============================
-   Header (refined)
+   Header (full-width, baseline-aligned)
    ============================= */
 
 .site-header {
@@ -58,10 +58,15 @@ body {
 
 .site-header .container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;    /* nav hugs name */
-  gap: 0.2rem;                    /* VERY close nav-to-name */
-  padding-top: 1.9rem;            /* slightly less top padding */
+
+  /* span across full column width: name on left, nav on right */
+  justify-content: space-between;
+
+  /* align text to the same bottom line */
+  align-items: flex-end;
+
+  gap: 0.5rem;
+  padding-top: 1.9rem;
   padding-bottom: 0.5rem;
 }
 
@@ -74,15 +79,17 @@ body {
   color: var(--text);
   font-size: 2rem;                /* BIGGEST on the site */
   text-transform: none;
-  margin-right: 0.4rem;
+
+  /* tiny tweak to sit nicely on the baseline */
+  padding-bottom: 0.05rem;
 }
 
-/* Nav — close to name, but spaced apart internally */
+/* Nav — on the same line, spaced apart internally */
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;                   /* further apart BETWEEN items */
-  margin-left: 0.2rem;            /* but still VERY close to name */
+  gap: 0.75rem;                   /* spacing between items */
+  margin-left: 0;                  /* let space-between handle side spacing */
 }
 
 .site-nav a {
@@ -90,6 +97,9 @@ body {
   font-size: 0.95rem;
   text-decoration: none;
   padding: 0.05rem 0;
+
+  /* small baseline nudge to match name visually */
+  padding-bottom: 0.08rem;
 }
 
 .site-nav a:hover {
